@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dapoer Mbah Wangsih — UMKM Kuliner Rumahan</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="header">
+  <nav class="navbar">
+    <a href="#home" class="logo">Dapoer Mbah Wangsih</a>
+    <button class="menu-toggle" aria-label="Buka menu">☰</button>
+    <ul class="nav-menu">
+      <li><a class="nav-link active" href="#home">Home</a></li>
+      <li><a class="nav-link" href="#about">Tentang Kami</a></li>
+      <li class="dropdown">
+        <a class="nav-link" href="#products">Produk <span>⌄</span></a>
+        <ul class="dropdown-menu">
+          <li><a href="#makanan">Makanan</a></li>
+          <li><a href="#snack">Snack</a></li>
+          <li><a href="#paket">Paket Hemat</a></li>
+        </ul>
+      </li>
+      <li><a class="nav-link" href="#promo">Promo</a></li>
+      <li><a class="nav-link" href="#contact">Kontak</a></li>
+    </ul>
+  </nav>
+</header>
+
+<main>
+<section id="home" class="hero">
+  <div class="hero-inner">
+    <div class="hero-copy">
+      <p class="eyebrow">UMKM KULINER RUMAHAN</p>
+      <h1>Cita Rasa <strong>Rumahan,</strong><br><span>Hangat di Setiap<br>Sajian.</span></h1>
+      <p class="lead">Nikmati makanan favorit dengan rasa rumahan yang dibuat dengan bahan pilihan dan penuh perhatian.</p>
+      <div class="actions">
+        <a class="btn primary" href="#products">Lihat Produk</a>
+        <a class="btn secondary" href="#contact">Hubungi Kami</a>
+      </div>
+    </div>
+    <div class="hero-card">
+      <div class="food-illustration" aria-hidden="true">🍱</div>
+      <h3>Masakan Rumahan</h3>
+      <p>Lezat • Hangat • Terjangkau</p>
+    </div>
+  </div>
+</section>
+
+<section id="about" class="section about">
+  <div>
+    <p class="eyebrow">TENTANG KAMI</p>
+    <h2>Dimasak seperti di rumah sendiri.</h2>
+  </div>
+  <p>Kami menghadirkan makanan rumahan yang sederhana, lezat, dan dibuat dengan perhatian. Cocok untuk makan sendiri, keluarga, maupun acara kecil.</p>
+</section>
+
+<section id="products" class="section products">
+  <div class="section-title">
+    <div><p class="eyebrow">PRODUK PILIHAN</p><h2>Favorit pelanggan</h2></div>
+    <a href="#contact">Pesan sekarang →</a>
+  </div>
+  <div class="product-grid">
+    <article id="makanan" class="product-card"><div class="product-icon">🍛</div><span class="tag">BEST SELLER</span><h3>Nasi Ayam Rumahan</h3><p>Nasi hangat, ayam berbumbu, sambal, dan sayur.</p><b>Rp25.000</b></article>
+    <article id="snack" class="product-card"><div class="product-icon">🥟</div><span class="tag">FAVORIT</span><h3>Snack Tradisional</h3><p>Aneka camilan rumahan dengan rasa gurih dan manis.</p><b>Mulai Rp10.000</b></article>
+    <article id="paket" class="product-card"><div class="product-icon">🍱</div><span class="tag">HEMAT</span><h3>Paket Keluarga</h3><p>Pilihan lauk dan nasi untuk dinikmati bersama keluarga.</p><b>Mulai Rp75.000</b></article>
+  </div>
+</section>
+
+<section id="promo" class="promo">
+  <div><p class="eyebrow">PROMO MINGGU INI</p><h2>Lebih hemat, tetap<br>rasa rumahan.</h2><p>Dapatkan promo khusus untuk pemesanan paket keluarga.</p></div>
+  <a class="btn light" href="#contact">Tanya Promo →</a>
+</section>
+
+<section id="contact" class="section contact">
+  <p class="eyebrow">KONTAK</p>
+  <h2>Pesan makanan favoritmu.</h2>
+  <div class="contact-grid">
+    <div>📍 <strong>Lokasi</strong><br><span>Jl. Mawar No. 12, Jakarta</span></div>
+    <div>📞 <strong>WhatsApp</strong><br><span>0812-3456-7890</span></div>
+    <div>🕐 <strong>Jam Buka</strong><br><span>08.00 – 20.00 WIB</span></div>
+  </div>
+</section>
+</main>
+
+<footer>© 2026 Dapoer Mbah Wangsih — Cita Rasa Rumahan.</footer>
+
+<script>
+const toggle = document.querySelector('.menu-toggle');
+const menu = document.querySelector('.nav-menu');
+toggle.addEventListener('click', () => menu.classList.toggle('show'));
+document.querySelectorAll('.nav-link').forEach(link => link.addEventListener('click', () => menu.classList.remove('show')));
+
+const sections = document.querySelectorAll('main section[id]');
+window.addEventListener('scroll', () => {
+  let current = 'home';
+  sections.forEach(section => {
+    if (window.scrollY >= section.offsetTop - 180) current = section.id;
+  });
+  document.querySelectorAll('.nav-link').forEach(link => {
+    const href = link.getAttribute('href');
+    link.classList.toggle('active', href === '#' + current || (current === 'makanan' && href === '#products'));
+  });
+});
+</script>
+</body>
+</html>
